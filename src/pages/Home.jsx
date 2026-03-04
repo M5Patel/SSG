@@ -34,7 +34,6 @@ const Home = () => {
         {/* 5. Featured Players */}
         <FeaturedPlayers />
 
-        {/* 6. Tournament Stats */}
         <TournamentStats />
 
       </main>

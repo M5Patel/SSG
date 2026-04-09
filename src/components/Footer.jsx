@@ -1,99 +1,83 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+const quickLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/gallery', label: 'Gallery' },
+  { to: '/members', label: 'Players' },
+  { to: '/teams', label: 'Teams' },
+  { to: '/sponsors', label: 'Sponsors' },
+  { to: '/about', label: 'About' },
+];
 
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Members', path: '/members' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Rules', path: '/rules' },
-    { name: 'About', path: '/about' },
-  ];
+const Footer = () => (
+  <footer className="relative border-t border-white/[0.06]" id="site-footer">
+    <div className="absolute inset-0 bg-gradient-to-t from-[#070d1a] to-transparent pointer-events-none" />
 
-  const socialLinks = [
-    { icon: FaFacebook, url: '#', label: 'Facebook' },
-    { icon: FaTwitter, url: '#', label: 'Twitter' },
-    { icon: FaInstagram, url: '#', label: 'Instagram' },
-    { icon: FaYoutube, url: '#', label: 'YouTube' },
-  ];
-
-  return (
-    <footer className="bg-cricket-green-dark text-white">
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo & Description */}
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-cricket-gold rounded-full flex items-center justify-center">
-                <span className="text-2xl">🏏</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-cricket-gold">SSGPL</h3>
-                <p className="text-sm text-cricket-gold-light">SSG Premier League</p>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              We're not just a tournament — we're a family. Building unity, discipline, 
-              and the spirit that never sleeps through cricket.
-            </p>
+    <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Brand */}
+        <div>
+          <div className="flex items-center gap-2.5 mb-4">
+            <span className="text-2xl">🏏</span>
+            <span className="font-orbitron font-bold text-lg text-white">SSGPL</span>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-cricket-gold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-300 hover:text-cricket-gold transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Media */}
-          <div>
-            <h4 className="text-lg font-semibold text-cricket-gold mb-4">Connect With Us</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  aria-label={social.label}
-                  className="w-10 h-10 bg-cricket-green-light rounded-full flex items-center justify-center 
-                           hover:bg-cricket-gold hover:text-cricket-green transition-all duration-300 transform hover:scale-110"
-                >
-                  <social.icon className="text-xl" />
-                </a>
-              ))}
-            </div>
-            <div className="mt-6">
-              <p className="text-sm text-gray-300">
-                <strong>Contact:</strong> ssgpl@society.com
-              </p>
-              <p className="text-sm text-gray-300 mt-1">
-                <strong>Phone:</strong> +91 98765 43210
-              </p>
-            </div>
-          </div>
+          <p className="font-inter text-slate-400 text-sm leading-relaxed mb-4 max-w-xs">
+            The most electrifying corporate cricket tournament. Where warriors become legends.
+          </p>
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-teal/20 bg-accent-teal/[0.05] text-accent-teal font-space text-[10px] font-semibold tracking-[0.15em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse" />
+            Season 2 · 2026
+          </span>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-cricket-green mt-8 pt-6 text-center">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} SSG Premier League. All Rights Reserved.
-          </p>
+        {/* Quick Links */}
+        <div>
+          <h4 className="font-orbitron font-semibold text-xs text-white mb-4 tracking-[0.15em] uppercase">Quick Links</h4>
+          <nav className="flex flex-col gap-2.5">
+            {quickLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className="font-inter text-slate-400 hover:text-accent-teal transition-colors text-sm"
+              >
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+
+        {/* Info */}
+        <div>
+          <h4 className="font-orbitron font-semibold text-xs text-white mb-4 tracking-[0.15em] uppercase">Season 2</h4>
+          <div className="space-y-3 font-inter text-sm">
+            <div className="flex items-center gap-3 text-slate-400">
+              <span>📅</span>
+              <span className="text-white font-medium">April 26, 2026</span>
+            </div>
+            <div className="flex items-center gap-3 text-slate-400">
+              <span>🏏</span>
+              <span className="text-white font-medium">6 Teams · 84 Players</span>
+            </div>
+            <div className="flex items-center gap-3 text-slate-400">
+              <span>🏆</span>
+              <span className="text-white font-medium">Where Legends Are Born</span>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/[0.06] mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="font-inter text-xs text-slate-500">
+          © 2026 SSGPL Cricket Tournament. All rights reserved.
+        </p>
+        <p className="font-inter text-xs text-slate-600">
+          Built with ❤️ for the love of cricket
+        </p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

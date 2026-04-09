@@ -1,44 +1,91 @@
-import React from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import GalleryCard from '../cards/GalleryCard';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import SectionHeader from '../components/SectionHeader';
 
-const Gallery = () => {
-  // Mock gallery photos with varied aspect ratios to build masonry layout
-  const photos = [
-    { id: 1, title: 'Opening Ceremony', src: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200' },
-    { id: 2, title: 'Final Match Action', src: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1200' },
-    { id: 3, title: 'Cup Celebration', src: 'https://images.unsplash.com/photo-1593341646782-e0be4ceda982?q=80&w=1200' },
-    { id: 4, title: 'Toss Time', src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200' },
-    { id: 5, src: 'https://images.unsplash.com/photo-1517436073194-9646452be7b5?q=80&w=1200' }, // Missing titles get no label
-    { id: 6, title: 'Stadium View', src: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1200' },
-    { id: 7, src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200' },
-    { id: 8, title: 'Player Warmup', src: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200' },
-    { id: 9, src: 'https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?q=80&w=1200' },
-  ];
+const pageVariants = {
+  initial: { opacity: 0, y: 15 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  exit: { opacity: 0, y: -15 },
+};
+
+const galleryItems = [
+  {
+    id: 1,
+    title: '🏏 Auction Photos',
+    description: 'Relive the thrilling player auction moments from SSGPL Season 2',
+    link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/247783?pass_key=8123',
+    badge: 'Season 2 · 2026',
+    color: '#2dd4bf',
+    emojis: ['🏏', '💰', '🎯', '⚡'],
+  },
+  {
+    id: 2,
+    title: '🏆 Previous Tournament',
+    description: 'Highlights and memories from our inaugural SSGPL Season 1',
+    link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/205362?pass_key=9418',
+    badge: 'Season 1 · 2025',
+    color: '#818cf8',
+    emojis: ['🏆', '🎉', '⭐', '🔥'],
+  },
+];
+
+const GalleryCard = ({ item, index }) => {
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <div className="w-full min-h-screen pt-28 pb-24 px-6 lg:px-8 bg-premium-dark relative">
-      {/* Background Aesthetic */}
-      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+    <motion.a
+      ref={ref}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.15, duration: 0.5 }}
+      className="group block max-w-[700px] mx-auto w-full"
+      id={`gallery-card-${item.id}`}
+    >
+      <div className="glass-card overflow-hidden">
+        {/* Banner */}
+        <div className="h-44 md:h-56 bg-gradient-to-br from-white/[0.04] to-white/[0.01] relative flex items-center justify-center">
+          <div className="flex gap-6 text-4xl md:text-5xl opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+            {item.emojis.map((e, i) => <span key={i}>{e}</span>)}
+          </div>
+          <div className="absolute top-4 right-4">
+            <span className="px-3 py-1 rounded-full text-xs font-space font-semibold text-white/80 border border-white/10 bg-white/[0.04] backdrop-blur-sm">
+              {item.badge}
+            </span>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0f172a]/70 to-transparent" />
+        </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <SectionTitle
-          title="Tournament Gallery"
-          subtitle="Capturing Moments"
-          centered={true}
-        />
-
-        {/* CSS Masonry Grid implementation using columns */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {photos.map((photo, idx) => (
-            <div key={photo.id} className="break-inside-avoid">
-              <GalleryCard item={photo} index={idx} />
-            </div>
-          ))}
+        {/* Content */}
+        <div className="p-6 md:p-7">
+          <h3 className="font-orbitron font-bold text-lg md:text-xl text-white mb-2 group-hover:text-accent-teal transition-colors">
+            {item.title}
+          </h3>
+          <p className="font-inter text-slate-400 text-sm mb-4 leading-relaxed">{item.description}</p>
+          <span className="font-space font-semibold text-sm uppercase tracking-wider flex items-center gap-2 group-hover:gap-3 transition-all" style={{ color: item.color }}>
+            View Gallery →
+          </span>
         </div>
       </div>
-    </div>
+    </motion.a>
   );
 };
+
+const Gallery = () => (
+  <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit"
+    className="min-h-screen pt-24 md:pt-28 pb-16 px-5 md:px-8"
+  >
+    <SectionHeader title="Gallery" subtitle="Captured moments of glory and passion" />
+
+    <div className="space-y-8 md:space-y-10 max-w-[700px] mx-auto">
+      {galleryItems.map((item, i) => (
+        <GalleryCard key={item.id} item={item} index={i} />
+      ))}
+    </div>
+  </motion.div>
+);
 
 export default Gallery;

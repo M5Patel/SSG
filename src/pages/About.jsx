@@ -1,104 +1,164 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiShield, FiTrendingUp } from 'react-icons/fi';
-import SectionTitle from '../ui/SectionTitle';
+import SectionHeader from '../components/SectionHeader';
+import ScrollReveal from '../components/ScrollReveal';
 
-const About = () => {
-  const visions = [
-    {
-      icon: FiShield,
-      title: 'Integrity',
-      desc: 'Upholding the spirit of the game with fairness and discipline at its core.'
-    },
-    {
-      icon: FiTrendingUp,
-      title: 'Growth',
-      desc: 'Fostering grassroots talent and providing a professional platform for growth.'
-    },
-    {
-      icon: FiCheckCircle,
-      title: 'Excellence',
-      desc: 'Striving for perfection in tournament organization and player experience.'
-    }
-  ];
+const pageVariants = {
+  initial: { opacity: 0, y: 15 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  exit: { opacity: 0, y: -15 },
+};
 
-  return (
-    <div className="w-full min-h-screen pt-28 pb-24 px-6 lg:px-8 bg-premium-dark relative overflow-hidden">
-      {/* Aesthetic blur overlays */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
+const timeline = [
+  { year: '2024', title: 'The Vision', desc: 'The vision of SSGPL was born — bringing corporate cricketers together under one banner.', color: '#818cf8', icon: '💡' },
+  { year: '2025', title: 'Season 1', desc: '6 Teams, 72 Players. An epic inaugural season that ended with a nail-biting finale.', color: '#2dd4bf', icon: '🏏' },
+  { year: '2026', title: 'Season 2', desc: '84 players, new teams, grander stage. SSGPL 2026 redefines corporate cricket. April 26.', color: '#fb7185', icon: '🚀' },
+];
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <SectionTitle
-          title="Our Story"
-          subtitle="The SSGPL Vision"
-          centered={true}
-        />
+const values = [
+  { emoji: '🤝', title: 'Sportsmanship', desc: 'We play hard but fair. Every match celebrates the spirit of cricket.', color: '#2dd4bf' },
+  { emoji: '🏘️', title: 'Community', desc: "SSGPL is more than a tournament — it's a family that grows stronger each season.", color: '#818cf8' },
+  { emoji: '🏆', title: 'Excellence', desc: 'From auction to final over, we strive for the extraordinary in everything.', color: '#fb7185' },
+];
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-2 lg:order-1"
-          >
-            <div className="glass p-8 rounded-3xl border border-white/10 relative">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] pointer-events-none" />
-              <h3 className="text-3xl font-display font-bold text-white mb-6">A Legacy In The Making</h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6 font-light shadow-sm">
-                The SSG Premier League was established with a singular vision: to create a premium, professionally managed cricketing platform that local talent truly deserves.
-                What started as a modest weekend tournament has rapidly evolved into a highly anticipated sporting extravaganza.
-              </p>
-              <p className="text-gray-300 text-lg leading-relaxed font-light">
-                We believe that cricket is more than a sport—it is an emotion that unites communities.
-                By providing world-class match experiences, rigorous umpiring standards, and an atmosphere that mirrors international leagues,
-                SSGPL offers a stage where heroes emerge.
-              </p>
-            </div>
-          </motion.div>
+const About = () => (
+  <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit"
+    className="min-h-screen pt-24 md:pt-28 pb-16 px-5 md:px-8 lg:px-16"
+  >
+    <SectionHeader title="About SSGPL" />
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 relative"
-          >
-            <div className="aspect-[4/5] md:aspect-square w-full rounded-[2rem] overflow-hidden glass border-8 border-white/5 relative group">
-              <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-700" />
-              <img
-                src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop"
-                alt="SSGPL Stadium"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              />
-            </div>
-          </motion.div>
+    {/* Story */}
+    <ScrollReveal>
+      <div className="max-w-3xl mx-auto mb-16">
+        <div className="glass-card p-7 md:p-10">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-xl">📖</span>
+            <h2 className="font-orbitron font-bold text-lg text-white">Our Story</h2>
+          </div>
+          <div className="space-y-4 font-inter text-slate-300 text-sm md:text-base leading-relaxed">
+            <p>
+              The SSG Premier League was born from a simple yet powerful idea: what happens when
+              corporate professionals trade their keyboards for cricket bats? The answer was extraordinary.
+            </p>
+            <p>
+              What started as a small gathering in 2024 quickly evolved into one of the most anticipated
+              corporate sporting events. Season 1 in 2025 saw 72 players across 6 teams battling in
+              intense matches that had spectators on the edge of their seats.
+            </p>
+            <p>
+              Now Season 2 is here — bigger than ever. With 84 warriors, enhanced formats, and a
+              grander stage, SSGPL 2026 promises to redefine corporate cricket.
+            </p>
+          </div>
+        </div>
+      </div>
+    </ScrollReveal>
+
+    {/* Timeline */}
+    <ScrollReveal delay={0.1}>
+      <div className="max-w-2xl mx-auto mb-16">
+        <div className="flex items-center gap-3 justify-center mb-10">
+          <span className="text-xl">🗺️</span>
+          <h2 className="font-orbitron font-bold text-xl text-white">Our Journey</h2>
         </div>
 
-        {/* Vision grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {visions.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="glass p-8 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors group"
-            >
-              <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-                <item.icon size={28} />
+        <div className="relative">
+          <div className="absolute left-7 top-0 bottom-0 w-[2px] bg-gradient-to-b from-accent-indigo via-accent-teal to-accent-rose" />
+
+          {timeline.map((item, i) => (
+            <ScrollReveal key={item.year} delay={i * 0.1}>
+              <div className="relative pl-16 pb-10 last:pb-0">
+                <div className="absolute left-5 w-4 h-4 rounded-full border-2 flex items-center justify-center"
+                  style={{ borderColor: item.color, backgroundColor: `${item.color}20` }}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }} />
+                </div>
+                <div className="glass-card p-5">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="font-orbitron font-bold text-sm" style={{ color: item.color }}>{item.year}</span>
+                  </div>
+                  <h3 className="font-orbitron font-semibold text-base text-white mb-1.5">{item.title}</h3>
+                  <p className="font-inter text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
               </div>
-              <h4 className="text-xl font-bold text-white mb-3">{item.title}</h4>
-              <p className="text-gray-400 leading-relaxed font-light">{item.desc}</p>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
-
       </div>
-    </div>
-  );
-};
+    </ScrollReveal>
+
+    {/* Vision & Mission */}
+    <ScrollReveal delay={0.1}>
+      <div className="max-w-3xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="glass-card p-6 group">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-xl">👁️</span>
+            <h3 className="font-orbitron font-bold text-base text-accent-teal">Vision</h3>
+          </div>
+          <p className="font-inter text-slate-300 text-sm leading-relaxed">
+            To create the most prestigious corporate cricket platform that transforms professionals into athletes
+            and sets the gold standard for corporate sporting events.
+          </p>
+        </div>
+        <div className="glass-card p-6 group">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-xl">🎯</span>
+            <h3 className="font-orbitron font-bold text-base text-accent-indigo">Mission</h3>
+          </div>
+          <p className="font-inter text-slate-300 text-sm leading-relaxed">
+            To unite corporate professionals through the spirit of cricket, providing a world-class tournament
+            experience that celebrates talent, teamwork, and unbreakable bonds.
+          </p>
+        </div>
+      </div>
+    </ScrollReveal>
+
+    {/* Values */}
+    <ScrollReveal delay={0.15}>
+      <div className="max-w-3xl mx-auto mb-16">
+        <div className="flex items-center gap-3 justify-center mb-10">
+          <span className="text-xl">💎</span>
+          <h2 className="font-orbitron font-bold text-xl text-white">Our Values</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {values.map((v, i) => (
+            <ScrollReveal key={v.title} delay={i * 0.1}>
+              <div className="glass-card p-6 text-center">
+                <span className="text-3xl block mb-3">{v.emoji}</span>
+                <h3 className="font-orbitron font-bold text-sm mb-2" style={{ color: v.color }}>{v.title}</h3>
+                <p className="font-inter text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </ScrollReveal>
+
+    {/* Quick Stats */}
+    <ScrollReveal>
+      <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
+        {[
+          { value: '6', label: 'Teams', icon: '⚔️' },
+          { value: '84', label: 'Players', icon: '🏏' },
+          { value: 'S2', label: 'Season', icon: '🏆' },
+          { value: '26th', label: 'April 2026', icon: '📅' },
+        ].map((s, i) => (
+          <motion.div key={s.label}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08, duration: 0.4 }}
+            className="glass-card flex flex-col items-center justify-center p-4 md:p-5"
+          >
+            <span className="text-lg mb-1.5">{s.icon}</span>
+            <span className="font-orbitron font-bold text-2xl text-accent-teal">{s.value}</span>
+            <span className="font-space text-[10px] text-slate-400 mt-1 uppercase tracking-[0.15em]">{s.label}</span>
+          </motion.div>
+        ))}
+      </div>
+    </ScrollReveal>
+  </motion.div>
+);
 
 export default About;

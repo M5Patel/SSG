@@ -1,42 +1,44 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-// Layout Components
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import ScrollToTop from './ui/ScrollToTop';
-import FeedbackModal from './ui/FeedbackModal';
-
-// Lazy load pages for performance
 const Home = lazy(() => import('./pages/Home'));
-const Members = lazy(() => import('./pages/Members'));
 const Gallery = lazy(() => import('./pages/Gallery'));
-const Rules = lazy(() => import('./pages/Rules'));
-const Auction = lazy(() => import('./pages/Auction'));
+const Members = lazy(() => import('./pages/Members'));
+const Teams = lazy(() => import('./pages/Teams'));
+const Sponsors = lazy(() => import('./pages/Sponsors'));
 const About = lazy(() => import('./pages/About'));
 
-// Animated Page Wrapper to handle transitions between routes
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+};
+
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/members" element={<Members />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/rules" element={<Rules />} />
-        <Route path="/auction" element={<Auction />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </AnimatePresence>
   );
 };
 
-// Global Loading Page Fallback
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-dark text-white">
-    <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+  <div className="min-h-screen flex flex-col items-center justify-center bg-[#0f172a]">
+    <div className="w-12 h-12 rounded-full border-2 border-accent-teal/20 border-t-accent-teal animate-spin" />
+    <p className="font-space text-xs text-slate-500 mt-5 tracking-[0.2em] uppercase animate-pulse">Loading</p>
   </div>
 );
 
@@ -45,12 +47,11 @@ function App() {
     <Router>
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1 w-full bg-dark">
+      <main className="flex-1 w-full">
         <Suspense fallback={<PageLoader />}>
           <AnimatedRoutes />
         </Suspense>
       </main>
-      <FeedbackModal />
       <Footer />
     </Router>
   );

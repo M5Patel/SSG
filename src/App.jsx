@@ -36,9 +36,20 @@ const AnimatedRoutes = () => {
 };
 
 const PageLoader = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-[#0f172a]">
-    <div className="w-12 h-12 rounded-full border-2 border-accent-teal/20 border-t-accent-teal animate-spin" />
-    <p className="font-space text-xs text-slate-500 mt-5 tracking-[0.2em] uppercase animate-pulse">Loading</p>
+  <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a0e17] relative overflow-hidden">
+    {/* Background glow */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#f0b429]/[0.04] rounded-full blur-[100px]" />
+
+    <div className="relative">
+      {/* Outer ring */}
+      <div className="w-14 h-14 rounded-full border-2 border-[#f0b429]/10 flex items-center justify-center">
+        {/* Spinning arc */}
+        <div className="absolute w-14 h-14 rounded-full border-2 border-transparent border-t-[#f0b429] animate-spin" />
+        {/* Inner dot */}
+        <div className="w-3 h-3 rounded-full bg-[#f0b429]/30 animate-pulse" />
+      </div>
+    </div>
+    <p className="font-heading text-[10px] text-[#484f58] mt-6 tracking-[0.3em] uppercase animate-pulse">Loading</p>
   </div>
 );
 

@@ -2,71 +2,57 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    // Override the default Tailwind border radii to enforce strictly sharp corners
-    // 'full' is kept exclusively for perfect circles (like avatars or icons)
-    borderRadius: {
-      none: '0',
-      sm: '0',
-      DEFAULT: '0',
-      md: '0',
-      lg: '0',
-      xl: '0',
-      '2xl': '0',
-      '3xl': '0',
-      full: '9999px', 
-    },
     extend: {
       colors: {
-        surface: {
-          DEFAULT: "#020202", // Deep space pure dark
-          card: "#050505",    // Slight elevation for glassmorphism
-          hover: "rgba(255, 255, 255, 0.03)", // Ultra-subtle highlight
-          border: "rgba(255, 255, 255, 0.06)", // Crisp, faint lines
-          glow: "rgba(255, 255, 255, 0.12)",
+        brand: {
+          bg: "#0d1117",
+          surface: "#161b22",
+          elevated: "#1c2333",
+          border: "#30363d",
+          gold: "#f0b429",
+          "gold-dim": "#d4942a",
+          accent: "#58a6ff",
         },
-        cyber: {
-          cyan: "#00e5ff",    // High-tech scanning UI accent
-          purple: "#7c3aed",  // Deep neon contrast
-          alert: "#ff003c",   // Cyberpunk red for critical UI/errors
-          matrix: "#00ff41",  // Success/Terminal green
+        text: {
+          primary: "#f0f6fc",
+          secondary: "#8b949e",
+          muted: "#484f58",
         },
       },
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"],
-        space: ["Space Grotesk", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
-        // Poppins is naturally a very round/soft font, consider using Inter for all body text 
-        // to maintain the sharp aesthetic.
-        poppins: ["Poppins", "sans-serif"], 
+        heading: ["'Space Grotesk'", "sans-serif"],
+        body: ["'Inter'", "sans-serif"],
+        display: ["'Orbitron'", "sans-serif"],
       },
       boxShadow: {
-        'neon-cyan': '0 0 20px rgba(0, 229, 255, 0.3)',
-        'neon-purple': '0 0 20px rgba(124, 58, 237, 0.3)',
-        'glass-edge': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+        "card": "0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)",
+        "card-hover": "0 8px 30px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3)",
+        "glow-gold": "0 0 20px rgba(240,180,41,0.15)",
+        "modal": "0 16px 70px rgba(0,0,0,0.6)",
       },
       animation: {
-        "scan": "scan 2s linear infinite",
-        "float": "float 6s cubic-bezier(0.16, 1, 0.3, 1) infinite", // Smoother ease curve
+        "fade-in": "fadeIn 0.5s ease-out",
+        "slide-up": "slideUp 0.5s ease-out",
         "border-pulse": "borderPulse 4s ease-in-out infinite",
-        "glow-fade": "glowFade 3s infinite alternate",
+        "float": "float 6s ease-in-out infinite",
       },
       keyframes: {
-        scan: {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(600px)" }, 
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        borderPulse: {
+          "0%, 100%": { borderColor: "rgba(240,180,41,0.15)" },
+          "50%": { borderColor: "rgba(240,180,41,0.4)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
-        borderPulse: {
-          "0%, 100%": { borderColor: "rgba(0, 229, 255, 0.1)" },
-          "50%": { borderColor: "rgba(0, 229, 255, 0.5)" },
-        },
-        glowFade: {
-          "0%": { opacity: "0.4", filter: "brightness(1)" },
-          "100%": { opacity: "1", filter: "brightness(1.5)" },
-        }
       },
     },
   },

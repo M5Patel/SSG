@@ -23,39 +23,47 @@ const CountdownTimer = () => {
   }, []);
 
   const blocks = [
-    { label: 'Days', value: timeLeft.days, color: '#2dd4bf' },
-    { label: 'Hours', value: timeLeft.hours, color: '#818cf8' },
-    { label: 'Min', value: timeLeft.minutes, color: '#fbbf24' },
-    { label: 'Sec', value: timeLeft.seconds, color: '#fb7185' },
+    { label: 'Days', value: timeLeft.days, color: '#f0b429' },
+    { label: 'Hours', value: timeLeft.hours, color: '#38bdf8' },
+    { label: 'Min', value: timeLeft.minutes, color: '#a78bfa' },
+    { label: 'Sec', value: timeLeft.seconds, color: '#f87171' },
   ];
 
   return (
-    <div className="flex justify-center gap-3 md:gap-4" id="countdown-timer">
+    <div className="flex justify-center gap-2 sm:gap-3 md:gap-4" id="countdown-timer">
       {blocks.map((b, i) => (
         <motion.div
           key={b.label}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: i * 0.1, duration: 0.5 }}
-          className="flex flex-col items-center justify-center w-[68px] h-[82px] md:w-[88px] md:h-[100px] rounded-xl glass-card"
-          style={{ borderColor: `${b.color}20` }}
+          initial={{ opacity: 0, scale: 0.7, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="relative flex flex-col items-center justify-center w-[60px] h-[74px] sm:w-[76px] sm:h-[92px] md:w-[90px] md:h-[108px] rounded-xl sm:rounded-2xl overflow-hidden group"
         >
-          <AnimatePresence mode="popLayout">
-            <motion.span
-              key={b.value}
-              initial={{ y: -12, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 12, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="font-orbitron font-bold text-2xl md:text-4xl tabular-nums"
-              style={{ color: b.color }}
-            >
-              {String(b.value).padStart(2, '0')}
-            </motion.span>
-          </AnimatePresence>
-          <span className="font-space text-[10px] text-slate-400 uppercase tracking-[0.15em] mt-1">
-            {b.label}
-          </span>
+          {/* Glass background */}
+          <div className="absolute inset-0 bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl sm:rounded-2xl" />
+          {/* Gradient accent at top */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] rounded-full" style={{ background: `linear-gradient(90deg, transparent, ${b.color}, transparent)` }} />
+          {/* Subtle glow */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" style={{ boxShadow: `inset 0 0 30px ${b.color}10` }} />
+
+          <div className="relative z-10 flex flex-col items-center">
+            <AnimatePresence mode="popLayout">
+              <motion.span
+                key={b.value}
+                initial={{ y: -15, opacity: 0, scale: 0.8 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                exit={{ y: 15, opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="font-display font-bold text-xl sm:text-2xl md:text-4xl tabular-nums"
+                style={{ color: b.color, textShadow: `0 0 20px ${b.color}30` }}
+              >
+                {String(b.value).padStart(2, '0')}
+              </motion.span>
+            </AnimatePresence>
+            <span className="font-heading text-[8px] sm:text-[9px] md:text-[10px] text-[#8b949e] uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-1 sm:mt-1.5">
+              {b.label}
+            </span>
+          </div>
         </motion.div>
       ))}
     </div>

@@ -66,76 +66,86 @@ const GalleryCard = ({ item, index }) => {
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative block w-full max-w-[1100px] mx-auto z-10"
+      transition={{ delay: index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative flex flex-col md:flex-row w-full max-w-[1100px] mx-auto z-10 bg-[#050505] overflow-hidden"
+      style={{ '--theme-color': item.color }} 
     >
-      {/* High-Tech Corner Brackets - Moved slightly outward so they don't clip */}
-      <div className="absolute -inset-[3px] border border-transparent group-hover:border-t-current group-hover:border-l-current w-16 h-16 transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 pointer-events-none" style={{ color: item.color }} />
-      <div className="absolute -bottom-[3px] -right-[3px] border border-transparent group-hover:border-b-current group-hover:border-r-current w-16 h-16 transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 pointer-events-none" style={{ color: item.color }} />
+      {/* 1. OUTER GLOW FRAME */}
+      <div className="absolute inset-0 border border-white/10 group-hover:border-[var(--theme-color)] transition-colors duration-700 pointer-events-none z-30" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none shadow-[inset_0_0_40px_rgba(0,0,0,0.8)] z-30" style={{ boxShadow: `inset 0 0 30px -10px ${item.color}` }} />
 
-      {/* Main Card Container - Enforced stronger default borders */}
-      <div className="relative bg-[#050505] flex flex-col md:flex-row w-full z-10 border border-white/10 group-hover:border-white/30 transition-colors duration-500 rounded-none">
+      {/* 2. CORNER TARGETING UI (Fixed & Aligned) */}
+      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 opacity-30 group-hover:opacity-100 transition-all duration-500 z-40 pointer-events-none" style={{ borderColor: item.color }} />
+      <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 opacity-30 group-hover:opacity-100 transition-all duration-500 z-40 pointer-events-none" style={{ borderColor: item.color }} />
+      <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 opacity-30 group-hover:opacity-100 transition-all duration-500 z-40 pointer-events-none" style={{ borderColor: item.color }} />
+      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 opacity-30 group-hover:opacity-100 transition-all duration-500 z-40 pointer-events-none" style={{ borderColor: item.color }} />
+
+      {/* --- IMAGE SECTION --- */}
+      <div className="relative w-full h-64 sm:h-72 md:w-5/12 md:h-auto overflow-hidden bg-black z-10 border-b md:border-b-0 md:border-r border-white/10 group-hover:border-[var(--theme-color)] transition-colors duration-700">
         
-        {/* Animated Cyber Scanner Line */}
+        {/* Removed Color Tint and Darkening Gradient to show only the pure image */}
+
+        <motion.img
+          src={item.image}
+          alt={item.title}
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02] group-hover:scale-110 transition-transform duration-[1.5s] ease-out"
+        />
+      </div>
+
+      {/* --- CONTENT SECTION --- */}
+      <div className="relative w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center z-10">
+        
+        {/* Interactive Background Glow */}
         <div 
-          className="absolute top-0 left-0 w-full h-[2px] opacity-0 group-hover:opacity-100 group-hover:animate-scan z-30 pointer-events-none" 
-          style={{ backgroundColor: item.color, boxShadow: `0 0 15px ${item.color}` }} 
+          className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
+          style={{ background: `radial-gradient(circle at center, ${item.color} 0%, transparent 70%)` }}
         />
 
-        {/* --- IMAGE SECTION --- */}
-        {/* Changed width ratio to give text more room, added explicit border between image and text */}
-        <div className="relative w-full h-64 sm:h-72 md:w-5/12 md:h-auto overflow-hidden bg-[#020202] border-b md:border-b-0 md:border-r border-white/10">
-          <motion.img
-            src={item.image}
-            alt={item.title}
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[1.5s] ease-out opacity-90 group-hover:opacity-100"
-            whileHover={{ scale: 1.08 }}
-          />
+        {/* Badge */}
+        <div className="mb-5">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 text-[11px] sm:text-xs font-space font-bold text-white uppercase tracking-[0.2em] group-hover:bg-[var(--theme-color)] group-hover:text-black group-hover:border-transparent transition-all duration-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+            {item.badge}
+          </span>
         </div>
+        
+        {/* Title (Enhanced size, weight, and tracking) */}
+        <h3 
+          className="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-[0.05em] leading-tight mb-5 relative"
+        >
+          {/* Glitch-text layer that appears briefly on hover */}
+          <span className="relative z-10 group-hover:text-[var(--theme-color)] transition-colors duration-500 drop-shadow-md group-hover:drop-shadow-[0_0_20px_var(--theme-color)]">
+            {item.title}
+          </span>
+        </h3>
 
-        {/* --- CONTENT SECTION --- */}
-        <div className="relative w-full md:w-7/12 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-[#050505]">
-          
-          {/* FIX: Moved Badge ABOVE the title to completely eliminate clipping/squishing issues */}
-          <div className="mb-6 flex flex-col items-start">
-            <span 
-              className="inline-block px-3 py-1.5 text-[10px] sm:text-xs font-space font-bold text-white uppercase tracking-[0.2em] border border-white/10 bg-white/5 backdrop-blur-md mb-4 transition-colors duration-300"
-              style={{ borderLeftColor: item.color, borderLeftWidth: '3px' }}
-            >
-              {item.badge}
+        {/* Description (Enhanced size, color contrast, and font weight) */}
+        <p className="font-inter text-gray-300 group-hover:text-white text-base md:text-lg leading-relaxed mb-10 max-w-xl transition-colors duration-500 relative z-10 font-medium tracking-wide">
+          {item.description}
+        </p>
+
+        {/* --- STABLE CYBER BUTTON --- */}
+        <div className="mt-auto relative z-10 self-start">
+          <div className="flex items-center gap-4 px-6 py-3 border border-white/20 group-hover:border-[var(--theme-color)] transition-colors duration-500 overflow-hidden relative cursor-pointer">
+            
+            {/* Background Fill Animation */}
+            <div className="absolute inset-0 w-full h-full bg-[var(--theme-color)] -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.86,0,0.07,1)] z-0" />
+            
+            {/* Button Text */}
+            <span className="font-space font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-white group-hover:text-black transition-colors duration-500 relative z-10 delay-100">
+              Access Gallery
             </span>
             
-            <h3 
-              className="font-orbitron font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white uppercase tracking-[0.08em] transition-colors duration-300 leading-tight"
-              onMouseEnter={(e) => e.target.style.color = item.color}
-              onMouseLeave={(e) => e.target.style.color = 'white'}
-            >
-              {item.title}
-            </h3>
-          </div>
-
-          <p className="font-inter text-slate-300 text-sm md:text-base leading-relaxed mb-10 max-w-lg">
-            {item.description}
-          </p>
-
-          {/* Action Button Area */}
-          <div className="mt-auto flex items-center gap-3 font-space font-bold text-xs sm:text-sm uppercase tracking-[0.2em]" style={{ color: item.color }}>
-            <div className="h-[2px] w-0 group-hover:w-12 transition-all duration-500 bg-current" />
-            <span className="relative overflow-hidden inline-block">
-               <span className="block group-hover:-translate-y-full transition-transform duration-500">View Gallery</span>
-               <span className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500">Access Data</span>
-            </span>
+            {/* Arrow Icon */}
             <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 ml-1 sm:ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-black transform group-hover:translate-x-1 transition-all duration-500 relative z-10"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor"
             >
               <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </div>
-
         </div>
+
       </div>
     </motion.a>
   );
@@ -151,7 +161,10 @@ const Gallery = () => (
       transition={{ duration: 1 }}
       className="relative pt-24 md:pt-32 pb-24 px-4 sm:px-6 md:px-12 z-10"
     >
-      <SectionHeader title="Gallery" subtitle="Cinematic moments of glory and passion" />
+      <SectionHeader 
+  title="Game of Glory" 
+  subtitle="Every shot, every wicket, every roar — relive the spirit of the game" 
+/>
 
       <div className="flex flex-col gap-12 md:gap-16 mt-16 md:mt-24">
         {galleryItems.map((item, i) => (

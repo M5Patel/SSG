@@ -128,22 +128,36 @@ const MatchCard = ({ match, index }) => {
             <span className="text-[9px] sm:text-[10px] font-body text-[#8b949e] tracking-wider">{match.time}</span>
           </div>
           <div className="flex items-center justify-between gap-2">
+            
+            {/* Team 1 Box */}
             <div className="flex-1 text-center min-w-0">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl mx-auto mb-1.5 flex items-center justify-center transition-transform duration-500 group-hover:scale-105" style={{ background: `linear-gradient(180deg, ${color1}10, transparent)`, border: `1px solid ${color1}15` }}>
-                <img src={teamLogoMap[match.team1]} alt="" className="w-6 h-6 sm:w-7 sm:h-7 object-contain opacity-90" />
+                {match.team1 === 'TBD' || !teamLogoMap[match.team1] ? (
+                  <span className="text-xl opacity-70 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">❓</span>
+                ) : (
+                  <img src={teamLogoMap[match.team1]} alt={match.team1} className="w-6 h-6 sm:w-7 sm:h-7 object-contain opacity-90" />
+                )}
               </div>
               <p className="font-heading font-medium text-[9px] sm:text-xs truncate text-gray-300">{match.team1}</p>
             </div>
+            
             <div className="flex flex-col items-center gap-1 px-1 flex-shrink-0">
               <span className="font-display font-bold text-[9px] sm:text-xs text-[#484f58] tracking-widest">VS</span>
               <div className="w-4 sm:w-6 h-[1px] bg-gradient-to-r from-transparent via-[#484f58] to-transparent opacity-50" />
             </div>
+            
+            {/* Team 2 Box */}
             <div className="flex-1 text-center min-w-0">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl mx-auto mb-1.5 flex items-center justify-center transition-transform duration-500 group-hover:scale-105" style={{ background: `linear-gradient(180deg, ${color2}10, transparent)`, border: `1px solid ${color2}15` }}>
-                <img src={teamLogoMap[match.team2]} alt="" className="w-6 h-6 sm:w-7 sm:h-7 object-contain opacity-90" />
+                {match.team2 === 'TBD' || !teamLogoMap[match.team2] ? (
+                  <span className="text-xl opacity-70 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">❓</span>
+                ) : (
+                  <img src={teamLogoMap[match.team2]} alt={match.team2} className="w-6 h-6 sm:w-7 sm:h-7 object-contain opacity-90" />
+                )}
               </div>
               <p className="font-heading font-medium text-[9px] sm:text-xs truncate text-gray-300">{match.team2}</p>
             </div>
+
           </div>
         </div>
       </div>

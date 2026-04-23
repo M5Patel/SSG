@@ -31,103 +31,102 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -80 }}
+      initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      // Upgraded to a spring animation for a more natural, premium feel
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? 'backdrop-blur-2xl bg-[#0a0e17]/80 border-b border-[#f0b429]/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
-          : 'bg-transparent'
+          // Deep glass effect on scroll: higher blur, subtle dark tint, bottom border
+          ? 'bg-[#050810]/40 backdrop-blur-2xl border-b border-white/[0.05] shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]'
+          : 'bg-transparent pt-2' // Added slight top padding when at the top for floating look
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-20 md:h-[88px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-20 md:h-[96px]">
         
-        {/* BIG LOGO - Uncropped & Centered */}
-        <NavLink to="/" className="flex items-center justify-center group h-full py-3" id="nav-logo">
-          <div className="relative flex items-center justify-center h-full transition-all duration-400 group-hover:drop-shadow-[0_0_20px_rgba(240,180,41,0.4)]">
+        {/* LOGO */}
+        <NavLink to="/" className="flex items-center justify-center group h-full py-3 z-50" id="nav-logo">
+          <div className="relative flex items-center justify-center h-full transition-all duration-500 group-hover:drop-shadow-[0_0_25px_rgba(240,180,41,0.6)]">
             <img 
               src="/teamlogo/image.png" 
               alt="SSGPL Logo" 
-              /* object-contain and w-auto ensures it never gets cut off! */
-              className="h-full w-auto max-w-[120px] md:max-w-[160px] object-contain rounded-xl group-hover:scale-105 transition-transform duration-500" 
+              className="h-full w-auto max-w-[120px] md:max-w-[160px] object-contain rounded-xl group-hover:scale-105 transition-transform duration-500 ease-out" 
             />
           </div>
         </NavLink>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-xl rounded-full px-2 py-1.5 border border-white/[0.04] shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+        {/* Desktop Nav - The "Floating Glass Pill" */}
+        <div className="hidden md:flex items-center gap-1 bg-[#121826]/40 backdrop-blur-3xl rounded-full px-2 py-2 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)]">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               id={`nav-${link.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `relative px-5 py-2.5 font-heading font-semibold text-[12px] tracking-widest uppercase rounded-full transition-all duration-300 ${
+                `relative px-6 py-2.5 font-heading font-bold text-[12px] tracking-[0.15em] uppercase rounded-full transition-all duration-300 overflow-hidden ${
                   isActive
-                    ? 'text-[#0a0e17] bg-gradient-to-r from-[#f0b429] to-[#f7c948] shadow-[0_2px_15px_rgba(240,180,41,0.3)]'
-                    : 'text-[#8b949e] hover:text-[#f0f6fc] hover:bg-white/[0.05]'
+                    ? 'text-[#0a0e17] bg-gradient-to-r from-[#f0b429] via-[#fcd34d] to-[#f0b429] shadow-[0_0_20px_rgba(240,180,41,0.5)] scale-105'
+                    : 'text-[#94a3b8] hover:text-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]'
                 }`
               }
             >
-              {link.label}
+              <span className="relative z-10">{link.label}</span>
             </NavLink>
           ))}
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button - Frosted Glass */}
         <button
-          className="md:hidden w-11 h-11 flex flex-col justify-center items-center gap-1.5 rounded-xl bg-white/[0.04] backdrop-blur-xl border border-white/[0.06] hover:border-[#f0b429]/30 transition-all duration-300"
+          className="md:hidden relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:bg-white/10 transition-all duration-300"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
-          id="nav-hamburger"
         >
           <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="block w-5 h-[2px] bg-[#f0b429] rounded-full origin-center"
+            animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            className="block w-5 h-[2px] bg-[#f0b429] rounded-full origin-center transition-all duration-300"
           />
           <motion.span
-            animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.2 }}
-            className="block w-5 h-[2px] bg-[#8b949e] rounded-full"
+            animate={mobileOpen ? { opacity: 0, width: 0 } : { opacity: 1, width: '20px' }}
+            className="block h-[2px] bg-white rounded-full transition-all duration-300"
           />
           <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="block w-5 h-[2px] bg-[#8b949e] rounded-full origin-center"
+            animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            className="block w-5 h-[2px] bg-white rounded-full origin-center transition-all duration-300"
           />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Glass Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 md:hidden"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 md:hidden bg-[#050810]/80"
           >
-            <div className="absolute inset-0 bg-[#0a0e17]/98 backdrop-blur-3xl" />
-            <div className="absolute top-20 right-10 w-40 h-40 bg-[#f0b429]/5 rounded-full blur-[80px]" />
-            <div className="absolute bottom-20 left-10 w-60 h-60 bg-[#818cf8]/5 rounded-full blur-[100px]" />
+            {/* Ambient Background Glows */}
+            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[#f0b429]/10 rounded-full blur-[100px]" />
+            <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px]" />
 
-            <nav className="relative z-10 flex flex-col items-center justify-center h-full gap-6">
+            <nav className="relative z-10 flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.to}
-                  initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
-                  transition={{ delay: i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: i * 0.05, duration: 0.4, ease: "easeOut" }}
                 >
                   <NavLink
                     to={link.to}
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
-                      `font-heading text-3xl font-bold tracking-[0.1em] transition-all duration-300 ${
-                        isActive ? 'text-[#f0b429] drop-shadow-[0_0_15px_rgba(240,180,41,0.5)]' : 'text-[#484f58] hover:text-[#f0f6fc]'
+                      `font-heading text-4xl font-bold tracking-widest uppercase transition-all duration-300 ${
+                        isActive 
+                          ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#f0b429] to-[#fcd34d] drop-shadow-[0_0_15px_rgba(240,180,41,0.4)]' 
+                          : 'text-white/60 hover:text-white'
                       }`
                     }
                   >
@@ -139,12 +138,14 @@ const Navbar = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="mt-8"
+                transition={{ delay: 0.4, duration: 0.4 }}
+                className="mt-12"
               >
-                <span className="px-5 py-2 rounded-full border border-[#f0b429]/20 bg-[#f0b429]/[0.06] text-[#f0b429] font-heading text-[11px] font-semibold tracking-[0.2em] uppercase">
-                  Season 2 · 2026
-                </span>
+                <div className="px-6 py-2 rounded-full border border-[#f0b429]/30 bg-[#f0b429]/10 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(240,180,41,0.2)]">
+                  <span className="text-[#f0b429] font-heading text-[12px] font-bold tracking-[0.2em] uppercase">
+                    Season 2 · 2026
+                  </span>
+                </div>
               </motion.div>
             </nav>
           </motion.div>

@@ -42,7 +42,7 @@ const galleryItems = [
     link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/247783?pass_key=8123',
     badge: 'Season 2 · 2026',
     color: '#00e5ff', 
-    image: '/public/gallery/image.png', 
+    image: '/gallery/image.png', 
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ const galleryItems = [
     link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/205362?pass_key=9418',
     badge: 'Season 1 · 2025',
     color: '#11ffdfff', 
-    image: '/public/gallery/image copy.png', 
+    image: '/gallery/image copy.png', 
   },
 ];
 

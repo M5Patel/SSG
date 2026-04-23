@@ -22,7 +22,7 @@
   {
     "id": 2,
     "name": "Sandip Kotadiya",
-    "image": "public/84Img/sandy.png",
+    "image": "/84Img/sandy.png",
     "occupation": "Business",
     "team": "UMA Super11",
     "dob": "1993-04-08",
@@ -192,7 +192,7 @@
   {
     "id": 19,
     "name": "Bittu Patel",
-    "image": "public/84Img/bittu.png",
+    "image": "/84Img/bittu.png",
     "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "2001-04-01",
@@ -212,7 +212,7 @@
   {
     "id": 21,
     "name": "Dipak Patel",
-    "image": "public/84Img/dipo.png",
+    "image": "/84Img/dipo.png",
     "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "",
@@ -222,7 +222,7 @@
   {
     "id": 22,
     "name": "Aryan Patel",
-    "image": "public/84Img/aryan.png",
+    "image": "/84Img/aryan.png",
     "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "2002-11-18",
@@ -232,7 +232,7 @@
   {
     "id": 23,
     "name": "Yash Tarpara",
-    "image": "public/84Img/yashtarapara.png",
+    "image": "/84Img/yashtarapara.png",
     "occupation": "Bussiness",
     "team": "Radhe Rising XI",
     "dob": "",
@@ -292,7 +292,7 @@
   {
     "id": 29,
     "name": "Sandip Vataliya",
-    "image": "public/84Img/sandip.png",
+    "image": "/84Img/sandip.png",
     "occupation": "Business",
     "team": "Lion Legends",
     "dob": "1993-06-25",
@@ -332,7 +332,7 @@
   {
     "id": 33,
     "name": "Nikhil S Patel",
-    "image": "public/84Img/nikhil.png",
+    "image": "/84Img/nikhil.png",
     "occupation": "Job",
     "team": "Lion Legends",
     "dob": "1991-08-19",
@@ -502,7 +502,7 @@
   {
     "id": 50,
     "name": "Sanjay Trivedi",
-    "image": "public/84Img/sanjaytri.png",
+    "image": "/84Img/sanjaytri.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -522,7 +522,7 @@
   {
     "id": 52,
     "name": "Dipesh Gajera",
-    "image": "public/84Img/dipeshv.png",
+    "image": "/84Img/dipeshv.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -542,7 +542,7 @@
   {
     "id": 54,
     "name": "Bhavesh Trivedi",
-    "image": "public/84Img/bhaveshtri.png",
+    "image": "/84Img/bhaveshtri.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -552,7 +552,7 @@
   {
     "id": 55,
     "name": "Thummar Kalp",
-    "image": "public/84Img/kalp.png",
+    "image": "/84Img/kalp.png",
     "occupation": "Study",
     "team": "MG Super Strikers",
     "dob": "",
@@ -572,7 +572,7 @@
   {
     "id": 57,
     "name": "Nirav Thummar",
-    "image": "public/84Img/niravthummar.png",
+    "image": "/84Img/niravthummar.png",
     "occupation": "Business",
     "team": "CP Warriors",
     "dob": "1985-06-29",
@@ -632,7 +632,7 @@
   {
     "id": 63,
     "name": "Krunal Kothiya",
-    "image": "public/84Img/krunal.png",
+    "image": "/84Img/krunal.png",
     "occupation": "",
     "team": "CP Warriors",
     "dob": "2003-09-19",
@@ -662,7 +662,7 @@
   {
     "id": 66,
     "name": "Rajesh Thummar",
-    "image": "public/84Img/rajesh.png",
+    "image": "/84Img/rajesh.png",
     "occupation": "Furniture",
     "team": "CP Warriors",
     "dob": "1980-03-03",
@@ -682,7 +682,7 @@
   {
     "id": 68,
     "name": "Ashish Joshi",
-    "image": "public/84Img/ashishjo.png",
+    "image": "/84Img/ashishjo.png",
     "occupation": "Pvt Job (JK Tyre)",
     "team": "CP Warriors",
     "dob": "1988-08-26",
@@ -722,7 +722,7 @@
   {
     "id": 72,
     "name": "Tirth Panchal",
-    "image": "public/84Img/tirthpanchal.png",
+    "image": "/84Img/tirthpanchal.png",
     "occupation": "Job",
     "team": "Rishiv Kings",
     "dob": "2005-11-29",
@@ -802,7 +802,7 @@
   {
     "id": 80,
     "name": "Mayur Patel",
-    "image": "public/84Img/mayur.png",
+    "image": "/84Img/mayur.png",
     "occupation": "Dog grooming",
     "team": "Rishiv Kings",
     "dob": "1990-05-05",
@@ -822,7 +822,7 @@
   {
     "id": 82,
     "name": "Kuldip Vaghasia",
-    "image": "public/84Img/kuldip.png",
+    "image": "/84Img/kuldip.png",
     "occupation": "",
     "team": "Rishiv Kings",
     "dob": "",
@@ -832,7 +832,7 @@
   {
     "id": 83,
     "name": "Mihir Khunt",
-    "image": "public/84Img/khunt.png",
+    "image": "/84Img/khunt.png",
     "occupation": "Accountant",
     "team": "Rishiv Kings",
     "dob": "2001-06-26",

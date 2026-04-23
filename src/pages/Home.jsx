@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
-import { Canvas } from '@react-three/fiber';
-import { Sparkles, Stars, Float } from '@react-three/drei';
+// Code-split ThreeJS components to improve initial load performance
+const ThreeBackground = React.lazy(() => import('../components/ThreeBackground'));
 
 import CountdownTimer from '../components/CountdownTimer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -16,24 +16,6 @@ const pageVariants = {
   animate: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
   exit: { opacity: 0 },
 };
-
-/* ─── SLOW, PREMIUM YELLOW 3D BACKGROUND ─── */
-const ThreeBackground = () => (
-  <div className="fixed inset-0 w-full h-full pointer-events-none z-[-2]">
-    <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-      <Stars radius={100} depth={50} count={2000} factor={4} saturation={1} fade speed={0.1} />
-      <Float speed={0.5} rotationIntensity={0.2} floatIntensity={0.5}>
-        <Sparkles count={80} scale={15} size={3} speed={0.1} opacity={0.4} color="#facc15" noise={0.2} />
-      </Float>
-      <Float speed={0.8} rotationIntensity={0.3} floatIntensity={0.8}>
-        <Sparkles count={60} scale={12} size={2} speed={0.15} opacity={0.3} color="#fef08a" />
-      </Float>
-      <Float speed={0.3} rotationIntensity={0.1} floatIntensity={0.3}>
-        <Sparkles count={30} scale={20} size={5} speed={0.05} opacity={0.2} color="#f59e0b" />
-      </Float>
-    </Canvas>
-  </div>
-);
 
 /* ─── STAT CARD ─── */
 const StatCard = ({ value, label, icon, delay = 0 }) => {
@@ -188,7 +170,9 @@ const Home = () => (
     <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,179,8,0.12)_0%,_transparent_50%)] z-[-3]" />
     <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(245,158,11,0.08)_0%,_transparent_40%)] z-[-3]" />
     <div className="fixed inset-0 opacity-[0.02] z-[-3]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
-    <ThreeBackground />
+    <Suspense fallback={null}>
+      <ThreeBackground />
+    </Suspense>
 
     {/* ═══ HERO ═══ */}
     {/* Removed min-h-[100dvh] so it doesn't force unnecessary vertical space */}

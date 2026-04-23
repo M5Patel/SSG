@@ -124,7 +124,7 @@ const Sponsors = () => {
                     {/* Glow */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(240,180,41,0.04), transparent 70%)' }} />
 
-                    {/* Rank badge */}
+                    {/* Rank badge
                     <div className="absolute top-3 left-3 z-20">
                       <motion.div
                         key={`rank-${displayIndex}`}
@@ -137,7 +137,7 @@ const Sponsors = () => {
                           {displayIndex + 1}
                         </span>
                       </motion.div>
-                    </div>
+                    </div> */}
 
                     <div className="relative z-10 p-4 sm:p-5">
                       <img

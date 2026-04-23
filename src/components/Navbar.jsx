@@ -40,31 +40,29 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16 md:h-[72px]">
-        {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-3 group" id="nav-logo">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-[#f0b429] to-[#d4942a] flex items-center justify-center shadow-[0_0_20px_rgba(240,180,41,0.3)] group-hover:shadow-[0_0_30px_rgba(240,180,41,0.5)] transition-shadow duration-400">
-            <span className="text-lg font-bold text-[#0a0e17]">S</span>
-          </div>
-          <div>
-            <span className="font-display font-bold text-lg text-[#f0f6fc] group-hover:text-[#f0b429] transition-colors duration-300">
-              SSGPL
-            </span>
-            <span className="font-heading text-[9px] tracking-[0.2em] text-[#484f58] uppercase block leading-tight">
-              Cricket League
-            </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-20 md:h-[88px]">
+        
+        {/* BIG LOGO - Uncropped & Centered */}
+        <NavLink to="/" className="flex items-center justify-center group h-full py-3" id="nav-logo">
+          <div className="relative flex items-center justify-center h-full transition-all duration-400 group-hover:drop-shadow-[0_0_20px_rgba(240,180,41,0.4)]">
+            <img 
+              src="/teamlogo/image.png" 
+              alt="SSGPL Logo" 
+              /* object-contain and w-auto ensures it never gets cut off! */
+              className="h-full w-auto max-w-[120px] md:max-w-[160px] object-contain rounded-xl group-hover:scale-105 transition-transform duration-500" 
+            />
           </div>
         </NavLink>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-xl rounded-2xl px-2 py-1.5 border border-white/[0.04]">
+        <div className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-xl rounded-full px-2 py-1.5 border border-white/[0.04] shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               id={`nav-${link.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `relative px-4 py-2 font-heading font-semibold text-[12px] tracking-widest uppercase rounded-xl transition-all duration-300 ${
+                `relative px-5 py-2.5 font-heading font-semibold text-[12px] tracking-widest uppercase rounded-full transition-all duration-300 ${
                   isActive
                     ? 'text-[#0a0e17] bg-gradient-to-r from-[#f0b429] to-[#f7c948] shadow-[0_2px_15px_rgba(240,180,41,0.3)]'
                     : 'text-[#8b949e] hover:text-[#f0f6fc] hover:bg-white/[0.05]'
@@ -112,7 +110,6 @@ const Navbar = () => {
             className="fixed inset-0 z-40 md:hidden"
           >
             <div className="absolute inset-0 bg-[#0a0e17]/98 backdrop-blur-3xl" />
-            {/* Decorative orbs */}
             <div className="absolute top-20 right-10 w-40 h-40 bg-[#f0b429]/5 rounded-full blur-[80px]" />
             <div className="absolute bottom-20 left-10 w-60 h-60 bg-[#818cf8]/5 rounded-full blur-[100px]" />
 
@@ -130,7 +127,7 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
                       `font-heading text-3xl font-bold tracking-[0.1em] transition-all duration-300 ${
-                        isActive ? 'text-[#f0b429] text-glow' : 'text-[#484f58] hover:text-[#f0f6fc]'
+                        isActive ? 'text-[#f0b429] drop-shadow-[0_0_15px_rgba(240,180,41,0.5)]' : 'text-[#484f58] hover:text-[#f0f6fc]'
                       }`
                     }
                   >
@@ -139,7 +136,6 @@ const Navbar = () => {
                 </motion.div>
               ))}
 
-              {/* Season badge in mobile menu */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}

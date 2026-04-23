@@ -22,7 +22,7 @@
   {
     "id": 2,
     "name": "Sandip Kotadiya",
-    "image": "/84Img/IMG_3020 - Sandip Kotadiya.jpeg",
+    "image": "public/84Img/sandy.png",
     "occupation": "Business",
     "team": "UMA Super11",
     "dob": "1993-04-08",
@@ -192,7 +192,7 @@
   {
     "id": 19,
     "name": "Bittu Patel",
-    "image": "",
+    "image": "public/84Img/bittu.png",
     "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "2001-04-01",
@@ -212,8 +212,8 @@
   {
     "id": 21,
     "name": "Dipak Patel",
-    "image": "",
-    "occupation": "",
+    "image": "public/84Img/dipo.png",
+    "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "",
     "instagram": "",
@@ -222,7 +222,7 @@
   {
     "id": 22,
     "name": "Aryan Patel",
-    "image": "",
+    "image": "public/84Img/aryan.png",
     "occupation": "Business",
     "team": "Radhe Rising XI",
     "dob": "2002-11-18",
@@ -232,8 +232,8 @@
   {
     "id": 23,
     "name": "Yash Tarpara",
-    "image": "",
-    "occupation": "",
+    "image": "public/84Img/yashtarapara.png",
+    "occupation": "Bussiness",
     "team": "Radhe Rising XI",
     "dob": "",
     "instagram": "",
@@ -273,7 +273,7 @@
     "id": 27,
     "name": "Patel Bhavesh",
     "image": "/84Img/IMG-20250526-WA0081 - bhavesh patel.jpg",
-    "occupation": "",
+    "occupation": "Job",
     "team": "Radhe Rising XI",
     "dob": "",
     "instagram": "",
@@ -292,7 +292,7 @@
   {
     "id": 29,
     "name": "Sandip Vataliya",
-    "image": "",
+    "image": "public/84Img/sandip.png",
     "occupation": "Business",
     "team": "Lion Legends",
     "dob": "1993-06-25",
@@ -332,7 +332,7 @@
   {
     "id": 33,
     "name": "Nikhil S Patel",
-    "image": "/84Img/Screenshot_2025-12-17-13-17-16-53_6012fa4d4ddec268fc5c7112cbb265e7 - Nikhil Patel.jpg",
+    "image": "public/84Img/nikhil.png",
     "occupation": "Job",
     "team": "Lion Legends",
     "dob": "1991-08-19",
@@ -341,7 +341,7 @@
   },
   {
     "id": 34,
-    "name": "Nikunjkumar M Patel",
+    "name": "Nikunj Patel",
     "image": "/84Img/IMG_20251221_221127 - patel nikunj.jpg",
     "occupation": "Business",
     "team": "Lion Legends",
@@ -502,7 +502,7 @@
   {
     "id": 50,
     "name": "Sanjay Trivedi",
-    "image": "",
+    "image": "public/84Img/sanjaytri.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -521,8 +521,8 @@
   },
   {
     "id": 52,
-    "name": "Dipesh V Gajera",
-    "image": "",
+    "name": "Dipesh Gajera",
+    "image": "public/84Img/dipeshv.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -542,7 +542,7 @@
   {
     "id": 54,
     "name": "Bhavesh Trivedi",
-    "image": "",
+    "image": "public/84Img/bhaveshtri.png",
     "occupation": "",
     "team": "MG Super Strikers",
     "dob": "",
@@ -552,8 +552,8 @@
   {
     "id": 55,
     "name": "Thummar Kalp",
-    "image": "",
-    "occupation": "",
+    "image": "public/84Img/kalp.png",
+    "occupation": "Study",
     "team": "MG Super Strikers",
     "dob": "",
     "instagram": "",
@@ -572,7 +572,7 @@
   {
     "id": 57,
     "name": "Nirav Thummar",
-    "image": "",
+    "image": "public/84Img/niravthummar.png",
     "occupation": "Business",
     "team": "CP Warriors",
     "dob": "1985-06-29",
@@ -632,7 +632,7 @@
   {
     "id": 63,
     "name": "Krunal Kothiya",
-    "image": "/84Img/e38ef4cb-2cc4-4320-b898-ec3d89e344c6 - KRUNAL KOTHIYA.jpeg",
+    "image": "public/84Img/krunal.png",
     "occupation": "",
     "team": "CP Warriors",
     "dob": "2003-09-19",
@@ -641,8 +641,8 @@
   },
   {
     "id": 64,
-    "name": "Kishan",
-    "image": "",
+    "name": "Kishan Kothiya",
+    "image": "/84Img/e38ef4cb-2cc4-4320-b898-ec3d89e344c6 - KRUNAL KOTHIYA.jpeg",
     "occupation": "",
     "team": "CP Warriors",
     "dob": "",
@@ -662,7 +662,7 @@
   {
     "id": 66,
     "name": "Rajesh Thummar",
-    "image": "",
+    "image": "public/84Img/rajesh.png",
     "occupation": "Furniture",
     "team": "CP Warriors",
     "dob": "1980-03-03",
@@ -682,7 +682,7 @@
   {
     "id": 68,
     "name": "Ashish Joshi",
-    "image": "",
+    "image": "public/84Img/ashishjo.png",
     "occupation": "Pvt Job (JK Tyre)",
     "team": "CP Warriors",
     "dob": "1988-08-26",
@@ -722,7 +722,7 @@
   {
     "id": 72,
     "name": "Tirth Panchal",
-    "image": "/84Img/IMG_1989 - Tirthpanchal.jpg",
+    "image": "public/84Img/tirthpanchal.png",
     "occupation": "Job",
     "team": "Rishiv Kings",
     "dob": "2005-11-29",
@@ -802,7 +802,7 @@
   {
     "id": 80,
     "name": "Mayur Patel",
-    "image": "/84Img/1459444316720 - Mayur Gajera.jpg",
+    "image": "public/84Img/mayur.png",
     "occupation": "Dog grooming",
     "team": "Rishiv Kings",
     "dob": "1990-05-05",
@@ -813,16 +813,16 @@
     "id": 81,
     "name": "DineshKumar Patel",
     "image": "/84Img/IMG_20251224_232025 - Mann Patel.jpg",
-    "occupation": "",
+    "occupation": "Insurance Advisor",
     "team": "Rishiv Kings",
-    "dob": "",
+    "dob": "01-06-1973",
     "instagram": "",
     "mobile": "9375174767"
   },
   {
     "id": 82,
     "name": "Kuldip Vaghasia",
-    "image": "/84Img/IMG-20251225-WA0072 - Amit Dhameliya.jpg",
+    "image": "public/84Img/kuldip.png",
     "occupation": "",
     "team": "Rishiv Kings",
     "dob": "",
@@ -832,7 +832,7 @@
   {
     "id": 83,
     "name": "Mihir Khunt",
-    "image": "",
+    "image": "public/84Img/khunt.png",
     "occupation": "Accountant",
     "team": "Rishiv Kings",
     "dob": "2001-06-26",

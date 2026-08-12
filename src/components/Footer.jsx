@@ -86,7 +86,7 @@ const Footer = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f0b429] opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f0b429]" />
               </span>
-              Season 2 · 2026
+              Season 3 · Coming Soon
             </span>
           </motion.div>
 
@@ -114,13 +114,13 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h4 className="font-heading font-semibold text-xs text-[#f0f6fc] mb-6 tracking-[0.15em] uppercase flex items-center gap-2">
               <span className="w-5 h-[1px] bg-[#f0b429]/60 shadow-[0_0_8px_rgba(240,180,41,0.8)]" />
-              Season 2 Details
+              Season 3 Details
             </h4>
             
             {/* Glass Container for details */}
             <div className="space-y-3 font-body text-sm bg-white/[0.02] border border-white/5 p-5 rounded-2xl backdrop-blur-lg shadow-xl shadow-black/20">
               {[
-                { icon: '📅', label: 'April 26, 2026' },
+                { icon: '📅', label: 'Coming Soon' },
                 { icon: '🏏', label: '6 Teams · 84 Players' },
                 { icon: '🏆', label: 'Where Legends Are Born' },
               ].map((item, i) => (

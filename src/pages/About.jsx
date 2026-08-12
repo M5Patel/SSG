@@ -12,7 +12,7 @@ const pageVariants = {
 const timeline = [
   { year: '2024', title: 'The Vision', desc: 'The vision of SSGPL was born — bringing corporate cricketers together under one banner.', color: '#a78bfa', icon: '💡' },
   { year: '2025', title: 'Season 1', desc: '6 Teams, 72 Players. An epic inaugural season that ended with a nail-biting finale.', color: '#38bdf8', icon: '🏏' },
-  { year: '2026', title: 'Season 2', desc: '84 players, new teams, grander stage. SSGPL 2026 redefines corporate cricket. April 26.', color: '#f0b429', icon: '🚀' },
+  { year: 'Soon', title: 'Season 3', desc: 'New teams, grander stage. SSGPL Season 3 redefines corporate cricket. Coming Soon.', color: '#f0b429', icon: '🚀' },
 ];
 
 const values = [
@@ -56,8 +56,8 @@ const About = () => (
                 intense matches that had spectators on the edge of their seats.
               </p>
               <p>
-                Now Season 2 is here — bigger than ever. With 84 warriors, enhanced formats, and a
-                grander stage, SSGPL 2026 promises to redefine corporate cricket.
+                Now Season 3 is here — bigger than ever. With enhanced formats, and a
+                grander stage, SSGPL promises to redefine corporate cricket.
               </p>
             </div>
           </div>
@@ -176,8 +176,8 @@ const About = () => (
         {[
           { value: '6', label: 'Teams', icon: '⚔️' },
           { value: '84', label: 'Players', icon: '🏏' },
-          { value: 'S2', label: 'Season', icon: '🏆' },
-          { value: '26th', label: 'April 2026', icon: '📅' },
+          { value: 'S3', label: 'Season', icon: '🏆' },
+          { value: 'TBA', label: 'Coming Soon', icon: '📅' },
         ].map((s, i) => (
           <motion.div key={s.label}
             initial={{ opacity: 0, y: 20 }}

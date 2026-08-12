@@ -143,7 +143,7 @@ const Navbar = () => {
               >
                 <div className="px-6 py-2 rounded-full border border-[#f0b429]/30 bg-[#f0b429]/10 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(240,180,41,0.2)]">
                   <span className="text-[#f0b429] font-heading text-[12px] font-bold tracking-[0.2em] uppercase">
-                    Season 2 · 2026
+                    Season 3 · Coming Soon
                   </span>
                 </div>
               </motion.div>

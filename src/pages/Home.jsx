@@ -6,7 +6,7 @@ import CountUp from 'react-countup';
 // Code-split ThreeJS components to improve initial load performance
 const ThreeBackground = React.lazy(() => import('../components/ThreeBackground'));
 
-import CountdownTimer from '../components/CountdownTimer';
+// import CountdownTimer from '../components/CountdownTimer';
 import ScrollReveal from '../components/ScrollReveal';
 import CommitteeCard from '../components/CommitteeCard';
 import teamsData from '../data/teams.json';
@@ -181,14 +181,14 @@ const Home = () => (
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.8 }} className="inline-block mb-4 sm:mb-6">
           <span className="font-heading text-[10px] sm:text-xs font-medium tracking-[0.25em] uppercase px-4 py-2 rounded-full border border-yellow-500/30 text-yellow-300 bg-yellow-900/10 backdrop-blur-md shadow-[0_0_20px_rgba(234,179,8,0.15)]">
-            Season 2 · April 26, 2026
+            Season 3 · Coming Soon
           </span>
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }} className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 leading-[1.1] tracking-tight drop-shadow-[0_0_30px_rgba(234,179,8,0.3)]">
-          <span className="bg-gradient-to-r from-yellow-100 via-yellow-400 to-amber-500 bg-clip-text text-transparent">SSGPL CRICKET</span>
+          <span className="bg-gradient-to-r from-yellow-100 via-yellow-400 to-amber-500 bg-clip-text text-transparent">SSGPL SEASON 3</span>
           <br />
-          <span className="bg-gradient-to-r from-yellow-300 via-amber-500 to-orange-500 bg-clip-text text-transparent">TOURNAMENT</span>
+          <span className="bg-gradient-to-r from-yellow-300 via-amber-500 to-orange-500 bg-clip-text text-transparent uppercase tracking-widest mt-2 block">COMING SOON</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="font-body text-sm sm:text-base md:text-lg text-[#a1a1aa] italic mb-1 font-light">
@@ -199,9 +199,7 @@ const Home = () => (
           6 Elite Teams · 84 Warriors · One Trophy
         </motion.p>
 
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.6 }} className="mb-8 relative z-20">
-          <CountdownTimer />
-        </motion.div>
+        {/* Timer Removed for Season 3 Coming Soon */}
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-20 mb-8 sm:mb-12">
           <Link to="/members" className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-[#050505] font-heading font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] w-full sm:w-auto">
@@ -232,8 +230,8 @@ const Home = () => (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <StatCard value={6} label="Teams" icon="⚔️" delay={0} />
         <StatCard value={84} label="Players" icon="🏏" delay={0.1} />
-        <StatCard value="S2" label="Season" icon="🏆" delay={0.2} />
-        <StatCard value="26th" label="April 2026" icon="📅" delay={0.3} />
+        <StatCard value="S3" label="Season" icon="🏆" delay={0.2} />
+        <StatCard value="TBA" label="Date" icon="📅" delay={0.3} />
       </div>
     </section>
 
@@ -268,7 +266,7 @@ const Home = () => (
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-6 bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(234,179,8,0.2)]">Match Schedule</h2>
             <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-[#0a0a0a]/60 backdrop-blur-md border border-yellow-500/20 shadow-[0_5px_15px_rgba(234,179,8,0.05)]">
               <span className="text-base opacity-80">📅</span>
-              <span className="font-heading font-semibold text-xs sm:text-sm text-yellow-100 tracking-wide">April 26, 2026</span>
+              <span className="font-heading font-semibold text-xs sm:text-sm text-yellow-100 tracking-wide">Coming Soon</span>
               <div className="flex items-center gap-1.5 ml-2 bg-yellow-500/10 px-2 py-1 rounded-full border border-yellow-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse shadow-[0_0_5px_rgba(234,179,8,0.8)]" />
                 <span className="text-[9px] font-heading text-yellow-300 uppercase tracking-widest font-semibold">Match Day</span>

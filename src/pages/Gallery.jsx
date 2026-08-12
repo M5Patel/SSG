@@ -36,9 +36,18 @@ const CyberSnow = () => {
 
 const galleryItems = [
   {
+    id: 3,
+    title: 'Season 2 Matches',
+    description: 'Action-packed moments and unforgettable memories from SSGPL Season 2',
+    link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/277223?share_key=9552',
+    badge: 'Season 2 · 2026',
+    color: '#ffa041ff', 
+    image: '/gallery/river.jpeg', 
+  },
+  {
     id: 1,
     title: 'Auction Photos',
-    description: 'Relive the thrilling player auction moments from SSGPL Season 2.',
+    description: 'Relive the thrilling player auction moments from SSGPL Season 2',
     link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/247783?pass_key=8123',
     badge: 'Season 2 · 2026',
     color: '#00e5ff', 
@@ -46,8 +55,8 @@ const galleryItems = [
   },
   {
     id: 2,
-    title: 'Previous Tournament',
-    description: 'Highlights and memories from our inaugural SSGPL Season 1.',
+    title: 'Season 1 Matches',
+    description: 'Highlights and memories from our inaugural Season 1',
     link: 'https://site.fotoowl.ai/divyeshsojitra/gallery/205362?pass_key=9418',
     badge: 'Season 1 · 2025',
     color: '#11ffdfff', 
